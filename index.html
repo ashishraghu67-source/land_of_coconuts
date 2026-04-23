@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥥 Land of Coconut | Tropical Eats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --husk: #4E342E;
+            --palm: #1E4D2B;
+            --cream: #FDFBF7;
+            --sun: #FFD54F;
+        }
+
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Fredoka+One', cursive; }
+
+        /* Animated Swaying Coconut Tree */
+        .tree-container {
+            position: absolute;
+            bottom: -10px;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .tree-left { left: -30px; transform: scaleX(-1); }
+        .tree-right { right: -30px; }
+        .sway {
+            transform-origin: bottom center;
+            animation: sway 4s ease-in-out infinite alternate;
+        }
+        @keyframes sway {
+            0% { transform: rotate(-3deg); }
+            100% { transform: rotate(3deg); }
+        }
+
+        /* Food Card Design */
+        .food-card {
+            background: white;
+            border-radius: 25px;
+            border: 3px solid var(--husk);
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 0 var(--husk);
+        }
+        .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 0 var(--palm);
+            border-color: var(--palm);
+        }
+        .food-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--husk);
+        }
+
+        .price-bubble {
+            background: var(--sun);
+            color: black;
+            padding: 4px 12px;
+            border-radius: 15px;
+            border: 2px solid black;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .coconut-divider {
+            height: 4px;
+            background: repeating-linear-gradient(90deg, var(--husk), var(--husk) 10px, transparent 10px, transparent 20px);
+            width: 80px;
+            margin: 15px auto;
+        }
+    </style>
+</head>
+<body class="text-stone-800">
+
+    <!-- Header Section -->
+    <header class="relative bg-emerald-800 text-white pt-16 pb-24 px-6 text-center overflow-hidden border-b-8 border-[#4E342E]">
+        <!-- Animated Coconut Trees -->
+        <div class="tree-container tree-left sway">
+            <svg width="120" height="200" viewBox="0 0 100 150">
+                <path d="M50,150 Q40,100 50,0" stroke="#4E342E" stroke-width="8" fill="none"/>
+                <path d="M50,10 Q10,20 5,50" stroke="#2d5a27" stroke-width="4" fill="none"/>
+                <path d="M50,10 Q90,20 95,50" stroke="#2d5a27" stroke-width="4" fill="none"/>
+                <circle cx="45" cy="15" r="5" fill="#6d4c41"/>
+                <circle cx="55" cy="12" r="5" fill="#6d4c41"/>
+            </svg>
+        </div>
+        
+        <div class="tree-container tree-right sway" style="animation-delay: -2s;">
+            <svg width="150" height="240" viewBox="0 0 100 150">
+                <path d="M50,150 Q60,100 50,0" stroke="#4E342E" stroke-width="8" fill="none"/>
+                <path d="M50,10 Q10,20 5,50" stroke="#2d5a27" stroke-width="5" fill="none"/>
+                <path d="M50,10 Q90,20 95,50" stroke="#2d5a27" stroke-width="5" fill="none"/>
+                <circle cx="48" cy="18" r="6" fill="#6d4c41"/>
+            </svg>
+        </div>
+
+        <div class="relative z-10" data-aos="zoom-in">
+            <p class="uppercase tracking-[0.3em] text-xs mb-2 font-bold text-yellow-300">Welcome to</p>
+            <h1 class="text-5xl md:text-7xl mb-4 drop-shadow-[0_4px_0_#4E342E]">LAND OF <span class="italic text-yellow-300">COCONUT</span></h1>
+            <div class="inline-block bg-white text-emerald-900 px-6 py-1 rounded-full font-bold text-sm shadow-lg">
+                📍 COLLEGE EVENT - STALL #14
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 -mt-10 relative z-20 pb-20">
+
+        <!-- CANAPE SECTION -->
+        <section class="mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl text-emerald-950 uppercase tracking-tighter" style="margin-top: 56px;">Small Bites</h2>
+                <div class="coconut-divider"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Pork Flatbread -->
+                <div class="food-card" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&q=80" alt="Pork Flatbread" class="food-img">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl text-emerald-900 leading-tight">Pork & Coconut Flatbread</h3>
+                            <span class="price-bubble">$7</span>
+                        </div>
+                        <p class="text-sm text-stone-600 italic">Crispy pork fry on rice flatbread topped with sweet aromatic coconut milk.</p>
+                    </div>
+                </div>
+
+                <!-- Potato Masala -->
+                <div class="food-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1606491956689-2ea8c5369511?auto=format&fit=crop&w=800&q=80" alt="Potato Masala" class="food-img">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl text-emerald-900 leading-tight">Potato Masala Poppers</h3>
+                            <span class="price-bubble">$5</span>
+                        </div>
+                        <p class="text-sm text-stone-600 italic">Panko-crusted mashed potato with a spicy kick of coconut chutney.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SMALL PLATES SECTION -->
+        <section class="mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl text-emerald-950 uppercase tracking-tighter">Island Plates</h2>
+                <div class="coconut-divider"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Mushroom Dosa -->
+                <div class="food-card" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=800&q=80" alt="Mushroom Dosa" class="food-img">
+                    <div class="p-4">
+                        <h3 class="text-lg text-emerald-900 mb-1">Mushroom Dosa</h3>
+                        <p class="text-xs text-stone-500 mb-4">Rice crepe, spiced mushrooms, white chutney.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-emerald-700">$9</span>
+                            <span class="text-xs font-bold text-orange-500 uppercase">Veggie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fish Nirvana -->
+                <div class="food-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80" alt="Fish Nirvana" class="food-img">
+                    <div class="p-4">
+                        <h3 class="text-lg text-emerald-900 mb-1">Fish Nirvana</h3>
+                        <p class="text-xs text-stone-500 mb-4">Trout fish, coconut milk, flaky Porotta.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-emerald-700">$12</span>
+                            <span class="text-xs font-bold text-blue-500 uppercase">Fresh Catch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pork Belly -->
+                <div class="food-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Pork Belly" class="food-img">
+                    <div class="p-4">
+                        <h3 class="text-lg text-emerald-900 mb-1">Roasted Pork Belly</h3>
+                        <p class="text-xs text-stone-500 mb-4">Slow-cooked belly with lacy Appam pancake.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-emerald-700">$11</span>
+                            <span class="text-xs font-bold text-red-500 uppercase">Bestseller</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECIAL SECTION -->
+        <section>
+            <div class="bg-[#4E342E] text-white rounded-[40px] overflow-hidden border-4 border-yellow-400 shadow-[0_15px_0_rgba(0,0,0,0.2)]" data-aos="zoom-in">
+                <div class="md:flex">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" alt="Beef Terrine" class="h-full w-full object-cover min-h-[300px]">
+                    </div>
+                    <div class="md:w-1/2 p-10 flex flex-col justify-center text-center md:text-left">
+                        <h2 class="text-yellow-400 text-sm tracking-[0.3em] font-bold mb-2">CHEF'S SIGNATURE</h2>
+                        <h3 class="text-3xl mb-4">Beef & Toasted Coconut Terrine</h3>
+                        <p class="text-stone-300 text-sm italic mb-6">
+                            Smoked bacon wrap, toasted nuts, and crunchy coconut chips. Drenched in our signature Beef-Coconut Sauce.
+                        </p>
+                        <div class="flex items-center justify-center md:justify-start space-x-4">
+                            <span class="text-4xl font-bold">$14</span>
+                            <button class="bg-yellow-400 text-black px-8 py-2 rounded-full font-bold uppercase tracking-widest hover:bg-white transition">Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-950 text-white py-16 px-6 text-center">
+        <h2 class="text-3xl mb-4 italic">See you at the stall!</h2>
+        <div class="flex justify-center space-x-6 mb-8 text-yellow-400 font-bold">
+            <span>INSTAGRAM</span>
+            <span>TIKTOK</span>
+            <span>FACEBOOK</span>
+        </div>
+        <p class="text-[10px] opacity-40 uppercase tracking-widest">© 2024 LAND OF COCONUT • STALL #14 MAIN QUAD</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
